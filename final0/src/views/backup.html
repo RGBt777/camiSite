@@ -1,0 +1,96 @@
+<template>
+  <div class="home">
+  <post></post>
+	<h3><u>Posts</u></h3>
+	<div class="postCont">
+	
+	<div v-for="(post, i) in posts" :key="i" id="imagePosts">	
+	
+	<div><h4><u>{{post.description}}</u></h4></div>
+	
+	<div><img :src="require('./../../../backend/uploads/' + post.path)"></div>
+	
+	
+	<div><h5>This wonderful image was posted by: <router-link :to="{name: 'Data', params: { id: post.email}}">{{post.email}}</router-link></h5></div>
+	
+	</div>
+
+	</div>
+	<div class="break"></div>
+
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+import post from './../components/userComp'
+
+export default {
+	name: 'userPost',
+	components: {
+	post
+	},
+	data(){
+	return {
+
+	posts: []
+	
+	}
+	
+	},
+	
+	mounted() {
+	this.getPosts();
+	
+	},
+	
+	methods: {
+		getPosts() {
+		
+		axios.get('http://localhost:4000/api/posts',).then((resp) => {
+	this.posts = resp.data
+	console.log(resp)
+	console.log(resp.data[0].path)
+	}).catch(console.error)
+	
+}
+}
+}
+
+</script>
+<style>
+
+img{
+	max-width: 300px;
+	
+
+}
+
+
+
+.home{
+	display:flex;
+	flex-direction: column;
+	margin: auto;
+	justify-content: center;
+	align-content: center;
+	
+
+	
+
+	
+}
+
+.break {
+height: 1px;
+width: 300px;
+margin: auto;
+background: #942ffa;
+}
+.postCont {
+	outline: 2px solid #942ffa;
+	padding: 10px;
+	background: #e8e8e8;
+
+}
+</style>

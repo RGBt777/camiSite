@@ -1,0 +1,2 @@
+# Image Site
+This is a project I created for my friends and I to be able to share images with each other in a digital space. The design of it is very minimal, as most of my effort went into learning Vue and as well as setting up a databse for the site. As of now the the site supports account creation (with password encryption), user pages, and user posts. In the future I would like to add admin tools, commenting, a chat room, and responsive web design for users on mobile devices. 
