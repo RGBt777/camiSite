@@ -1,0 +1,10 @@
+mcarter,Carter,Marilyn,312/473-4837,1,mcarter@coolmail.net
+ggraber,Graber,Gary,312/837-2837,3,ggraber@coolmail.net
+ccarpent,Carpenter,Carrie,312/377-2873,2,ccarpent@coolmail.net
+ccheng,Cheng,Sam,312/272-4473,1,scheng@coolmail.net
+obooker,Booker,Olivia,312/928-3980,4,obooker@coolmail.net
+rscanchez,Sanchez,Ricardo,312/838-9928,2,rsanchez@coolmail.net
+cdharan,Dharan,Connor,312/263-3922,2,cdharan@coolmail.net
+yboulet,Boulet,Yvette,312/235-3728,3,yboulet@coolmail.net
+rbolger,Bolger,Raymond,312/663-3827,4,rbolger@coolmail.net
+sstrickl,Strickland,Sheryl,312/878-9800,1,sstrickl@coolmail.net
