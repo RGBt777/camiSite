@@ -1,0 +1,37 @@
+<%= form_with(model: trandetail, local: true) do |form| %>
+  <% if trandetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trandetail.errors.count, "error") %> prohibited this trandetail from being saved:</h2>
+
+      <ul>
+      <% trandetail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :sales_id %>
+    <%= form.select :sales_id, @sales_choice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.select :product_id, @product_choice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :saleprice %>
+    <%= form.text_field :saleprice, id: :trandetail_saleprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prodqty %>
+    <%= form.number_field :prodqty, id: :trandetail_prodqty %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tshirt</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  
+  <body bgcolor="lightgrey">
+	<center>
+	<table bgcolor="white" width="90%">
+		<tr><td> <%= render "layouts/header" %> </td></tr>
+		<tr><td height='300' valign='top'>   <%= yield %> </td> </tr>
+		<tr><td> <%= render "layouts/footer" %> </td></tr>
+	</table>
+	</center>
+  </body>
+</html>

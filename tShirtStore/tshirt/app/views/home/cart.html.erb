@@ -1,0 +1,52 @@
+<h1>Shopping Cart</h1>
+<% i=0 %>
+<% totqty=0 %>
+<% totprice=0 %>
+<% cartlen = session[:cart_prod].length %>
+
+<% if cartlen >0 %>
+	<table border=1>
+		<tr>
+			<th> Product Name </th>
+			<th> Sale Price </th>
+			<th> Qty Selected </th>
+		</tr>
+		
+	<% while i < cartlen %>
+		<tr>
+			<td> <%= Product.find(session[:cart_prod][i].to_i).productname %> </td>
+			<td align='right'> <%= number_to_currency(Product.find(session[:cart_prod][i].to_i).saleprice) %> </td>
+			<td align='center'> <%= session[:cart_qty][i] %> </td>
+			<td> 
+				<%= form_tag :controller => 'home', :action => 'updatecart' do %>
+					<%= hidden_field_tag 'cartid', "#{i}" %>
+					<%= submit_tag 'Remove' %>
+			    <% end %>
+			</td>
+		</tr>
+		<% totqty = totqty + session[:cart_qty][i].to_i %>
+		<% totprice = totprice + (Product.find(session[:cart_prod][i].to_i).saleprice * session[:cart_qty][i].to_i) %>
+		<% i = i + 1 %>
+	<% end %>
+	
+		<tr bgcolor='yellow'>
+			<td> <b> Total </b> </td>
+			<td align='right'> <b> <%= number_to_currency(totprice) %> </b> </td>
+			<td align='center'> <b> <%= totqty %> </b> </td>
+		</tr>
+	</table>
+<b>RECORD THE EXACT NAMES + QUANTITY + PRICE OF YOUR SHOPPING CART FOR PAYPAL CHECKOUT</b>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="M6V83K5KLNNUL">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+
+				
+<% else %>
+	<p> There are no items in the cart. </p>
+
+<% end %>

@@ -1,0 +1,46 @@
+<table width='100%' align='left' bgcolor='orange'> <tr>
+<td width='7%' align='left'>
+<%= link_to (image_tag 'logo.png', size: "150x150"), home_index_path %></td> 
+<td width='70%' align='center' ><h1><%= image_tag 'headerimage.png', size: "800x130" %></td> 
+</h1></td>
+<td width='75%' align='center'>
+<%= form_tag :action => 'search', :controller => 'home' do %>
+Search : <%=text_field_tag 'searchinput', @searchinput %> </p>
+<% end %> 
+
+
+</td>
+<td>
+<% if session[:user_id].nil? %>
+<%= link_to "New Customer", new_customer_path %>
+<%= button_to 'Login', login_path, :method => :get %>
+<% else %>
+Hello <%=
+Customer.find(session[:user_id]).lastname %> !
+<%= button_to 'Logout', logout_path, :method => :delete %>
+<% end %>
+</td>
+</tr></table>
+
+<ul>
+ <li><%= link_to "Home", home_index_path %></li>
+ <li><%= link_to "Contact Us", home_contact_path %></li>
+ <li><%= link_to "About Us", home_about_path %></li>
+ <li> <%=link_to "Catalog", home_catalog_path %> </li>
+  </ul>
+  
+<% if !session[:user_id].nil? %>
+<% if Customer.find(session[:user_id]).adminflag? %>
+ 
+ <li><%= link_to "Customers", customers_path %></li>
+ <li><%= link_to "Sales", sales_path %></li>
+ <li><%= link_to "Sale Details", saledetails_path %></li>
+ <li><%= link_to "Categories", categories_path %></li>
+ <li><%= link_to "Products", products_path %></li>
+ <li><%= link_to "Supplier", suppliers_path %></li>
+ <li><%= link_to "Reviews", reviews_path %></li>
+ <li><%= link_to "Reorders", reorders_path %></li>
+ <li><%= link_to "Reports", report_reportmenu_path %></li>
+ </ul>
+ <% end %>
+ <% end %>

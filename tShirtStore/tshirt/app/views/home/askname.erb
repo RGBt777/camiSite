@@ -1,0 +1,9 @@
+<h1>Get Customer Name</h1>
+<h1> Hello <%= @customername %> </h1>
+<%= form_tag :action => 'askname' do %>
+<p>Enter your name:
+<%=text_field_tag 'username', @customername %> </p>
+<%=submit_tag 'Save'%>
+<% end %>
+
+<p> <%= @customername %> </p>

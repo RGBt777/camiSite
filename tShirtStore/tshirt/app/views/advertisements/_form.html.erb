@@ -1,0 +1,42 @@
+<%= form_with(model: advertisement, local: true) do |form| %>
+  <% if advertisement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(advertisement.errors.count, "error") %> prohibited this advertisement from being saved:</h2>
+
+      <ul>
+      <% advertisement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :advertisement_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :advertisement_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imagepath %>
+    <%= form.text_field :imagepath, id: :advertisement_imagepath %>
+  </div>
+
+  <div class="field">
+    <%= form.label :startdate %>
+    <%= form.date_select :startdate, id: :advertisement_startdate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enddate %>
+    <%= form.date_select :enddate, id: :advertisement_enddate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

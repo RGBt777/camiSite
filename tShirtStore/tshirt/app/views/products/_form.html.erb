@@ -1,0 +1,78 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :productname %>
+    <%= form.text_field :productname, id: :product_productname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :productimage %>
+    <%= form.number_field :productimage, id: :product_productimage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :product_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color, id: :product_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.text_field :size, id: :product_size %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :saleprice %>
+    <%= form.text_field :saleprice, id: :product_saleprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :product_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purchaseprice %>
+    <%= form.text_field :purchaseprice, id: :product_purchaseprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qtyonhand %>
+    <%= form.number_field :qtyonhand, id: :product_qtyonhand %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reorderpoint %>
+    <%= form.number_field :reorderpoint, id: :product_reorderpoint %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reorderqty %>
+    <%= form.number_field :reorderqty, id: :product_reorderqty %>
+  </div>
+  
+   <div class="field">
+    <%= form.label :homepageflag %>
+    <%= form.check_box :homepageflag %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

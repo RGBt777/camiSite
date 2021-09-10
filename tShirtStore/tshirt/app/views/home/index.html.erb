@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<table border="1", width="100%">
+<tr>
+<td width="80%">
+
+<h1>Home</h1>
+<p> The current time is: <%= @time %> </p>	
+</td>
+<td width="20%">
+<% @ads.each do |a| %>
+<p> <%= image_tag a.imagepath, size:"300x300" %> </p>
+<% end %>
+</td>
+</tr></table>
+<h1>Featured Items:</h2>
+
+<% @prod.each do |p| %>
+	<table width='100%'>
+	<td align='center'><b></b><b><%= link_to p.productname,  product_path(p.id) %> </b></td>
+	<tr><td><center>
+<% if p.productimage == 1 %>
+<%= image_tag "twinpeaksblack.png", size:"50x50" %>
+<% elsif p.productimage == 2 %>
+<%= image_tag "twinpeakswhite.png", size:"50x50" %>
+<% elsif p.productimage == 3 %>
+<%= image_tag "magicianblack.png", size:"50x50" %>
+<% elsif p.productimage == 4 %>
+<%= image_tag "magicianwhite.png", size: "50x50" %>
+<% elsif p.productimage == 5 %>
+<%= image_tag "smokeblack.png", size: "50x50" %>
+<% elsif p.productimage == 6 %>
+<%= image_tag "smokewhite.png", size: "50x50" %>
+<% elsif p.productimage == 7 %>
+<%= image_tag "streakyblack.png", size: "50x50" %>
+<% elsif p.productimage == 8 %>
+<%= image_tag "streakywhite.png", size: "50x50" %>
+<% elsif p.productimage == 9 %>
+<%= image_tag "gogglesblack.png", size: "50x50" %>
+<% elsif p.productimage == 10 %>
+<%= image_tag "goggleswhite.png", size: "50x50" %>
+<% end %>
+<% end %>
+	</center></td></tr>
+</html>
+

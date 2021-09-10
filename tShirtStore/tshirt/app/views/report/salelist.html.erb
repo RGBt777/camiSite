@@ -1,0 +1,20 @@
+<h1>Sales Listing</h1>
+<table border=1>
+<tr>
+	<th>Transaction Number</th>
+	<th>Product Number</th>
+	<th>Sale Price</th>
+	<th>Product Quantity</th>
+</tr>
+
+
+<% @salelist.each do |c| %>
+
+<tr>
+	<td><%= c.transaction_id %></td>
+	<td> <%= c.product_id %> </td>
+	<td> <%= c.saleprice %> </td>
+	<td> <%= c.prodqty %> </td>
+</tr>
+<% end %>
+</table>

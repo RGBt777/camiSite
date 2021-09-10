@@ -1,0 +1,88 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Productname:</strong>
+  <%= @product.productname %>
+</p>
+
+<p>
+  <strong>Productimage:</strong>
+<% if @product.productimage == 1 %>
+<%= image_tag "twinpeaksblack.png", size:"500x500" %>
+<% elsif @product.productimage == 2 %>
+<%= image_tag "twinpeakswhite.png", size:"500x500" %>
+<% elsif @product.productimage == 3 %>
+<%= image_tag "magicianblack.png", size:"500x500" %>
+<% elsif @product.productimage == 4 %>
+<%= image_tag "magicianwhite.png", size: "500x500" %>
+<% elsif @product.productimage == 5 %>
+<%= image_tag "smokeblack.png", size: "500x500" %>
+<% elsif @product.productimage == 6 %>
+<%= image_tag "smokewhite.png", size: "500x500" %>
+<% elsif @product.productimage == 7 %>
+<%= image_tag "streakyblack.png", size: "500x500" %>
+<% elsif @product.productimage == 8 %>
+<%= image_tag "streakywhite.png", size: "500x500" %>
+<% elsif @product.productimage == 9 %>
+<%= image_tag "gogglesblack.png", size: "500x500" %>
+<% elsif @product.productimage == 10 %>
+<%= image_tag "goggleswhite.png", size: "500x500" %>
+<% end %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @product.color %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @product.size %>
+</p>
+
+<p>
+  <strong>Subcategory1:</strong>
+  <%= @product.subcategory1 %>
+</p>
+
+<p>
+  <strong>Saleprice:</strong>
+  <%= @product.saleprice %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @product.status %>
+</p>
+
+<p>
+  <strong>Purchaseprice:</strong>
+  <%= @product.purchaseprice %>
+</p>
+
+<p>
+  <strong>Qtyonhand:</strong>
+  <%= @product.qtyonhand %>
+</p>
+
+<p>
+  <strong>Reorderpoint:</strong>
+  <%= @product.reorderpoint %>
+</p>
+
+<p>
+  <strong>Reorderqty:</strong>
+  <%= @product.reorderqty %>
+</p>
+<p>
+<strong>Homepage?:</strong>
+<%= @product.homepageflag %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', :back %>

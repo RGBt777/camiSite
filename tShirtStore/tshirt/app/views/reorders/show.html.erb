@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @reorder.product_id %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @reorder.supplier_id %>
+</p>
+
+<p>
+  <strong>Qtyorder:</strong>
+  <%= @reorder.qtyorder %>
+</p>
+
+<p>
+  <strong>Reorderdate:</strong>
+  <%= @reorder.reorderdate %>
+</p>
+
+<p>
+  <strong>Expecteddelivery:</strong>
+  <%= @reorder.expecteddelivery %>
+</p>
+
+<%= link_to 'Edit', edit_reorder_path(@reorder) %> |
+<%= link_to 'Back', reorders_path %>

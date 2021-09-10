@@ -1,0 +1,54 @@
+<h1>Search</h1>
+<%= form_tag :action => 'search' do %>
+<p>What are you looking for?:
+<%=text_field_tag 'searchinput', @searchinput %> </p>
+<%=submit_tag 'Search'%>
+<% end %>
+
+<% if @results != 0 %>
+
+	<% if @searchresults.length > 0 %>
+<hr>
+<p> Here are the results based on your search: </p>
+<table border = 1> <tr>
+<th> Product Name </th>
+<th> Product Image </th>
+<th> Product Price </th>
+</tr>
+
+<% @searchresults.each do |p| %>
+<tr>
+<td> <%= link_to p.productname, product_path(p)  %></td>
+<td> 
+<% if p.productimage == 1 %>
+<%= image_tag "twinpeaksblack.png", size:"50x50" %>
+<% elsif p.productimage == 2 %>
+<%= image_tag "twinpeakswhite.png", size:"50x50" %>
+<% elsif p.productimage == 3 %>
+<%= image_tag "magicianblack.png", size:"50x50" %>
+<% elsif p.productimage == 4 %>
+<%= image_tag "magicianwhite.png", size: "50x50" %>
+<% elsif p.productimage == 5 %>
+<%= image_tag "smokeblack.png", size: "50x50" %>
+<% elsif p.productimage == 6 %>
+<%= image_tag "smokewhite.png", size: "50x50" %>
+<% elsif p.productimage == 7 %>
+<%= image_tag "streakyblack.png", size: "50x50" %>
+<% elsif p.productimage == 8 %>
+<%= image_tag "streakywhite.png", size: "50x50" %>
+<% elsif p.productimage == 9 %>
+<%= image_tag "gogglesblack.png", size: "50x50" %>
+<% elsif p.productimage == 10 %>
+<%= image_tag "goggleswhite.png", size: "50x50" %>
+<% end %>
+</td>
+<td> <%= p.saleprice %> </td>
+</tr> 
+<% end %>
+</table>
+<% else %>
+<p> Your search did not yield any results </p>
+<% end %>
+<% end %>
+
+

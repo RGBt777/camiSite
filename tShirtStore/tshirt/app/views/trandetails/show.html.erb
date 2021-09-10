@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Transaction:</strong>
+  <%= @trandetail.transaction_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @trandetail.product_id %>
+</p>
+
+<p>
+  <strong>Saleprice:</strong>
+  <%= @trandetail.saleprice %>
+</p>
+
+<p>
+  <strong>Prodqty:</strong>
+  <%= @trandetail.prodqty %>
+</p>
+
+<%= link_to 'Edit', edit_trandetail_path(@trandetail) %> |
+<%= link_to 'Back', trandetails_path %>

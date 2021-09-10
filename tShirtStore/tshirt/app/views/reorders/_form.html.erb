@@ -1,0 +1,42 @@
+<%= form_with(model: reorder, local: true) do |form| %>
+  <% if reorder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reorder.errors.count, "error") %> prohibited this reorder from being saved:</h2>
+
+      <ul>
+      <% reorder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.select :product_id, @reorder_choice  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :supplier_id %>
+    <%= form.select :supplier_id, @supplier_choice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qtyorder %>
+    <%= form.number_field :qtyorder, id: :reorder_qtyorder %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reorderdate %>
+    <%= form.date_select :reorderdate, id: :reorder_reorderdate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expecteddelivery %>
+    <%= form.date_select :expecteddelivery, id: :reorder_expecteddelivery %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
